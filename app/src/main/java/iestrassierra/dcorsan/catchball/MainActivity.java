@@ -60,6 +60,8 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         ball.setOnTouchListener((view, event) -> {
             if (Math.sqrt(Math.pow((event.getX() - ball.getSize()/2),2) + Math.pow((event.getY() - ball.getSize()/2),2)) <= ball.getSize() / 2) {
                 Toast.makeText(this, "Bola pillada", Toast.LENGTH_SHORT).show();
+                // Deja de mover la bola al parar el bucle
+                handler.removeCallbacksAndMessages(null);
             }
 
             return true;
